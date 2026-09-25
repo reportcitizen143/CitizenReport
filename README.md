@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/logo.png" alt="Citizen Report" width="220" />
+</p>
+
 # Citizen Report
 
 > **మన ఊరి సమస్య — మన స్వరం**
@@ -91,14 +95,14 @@ backend instead — without changing a single component.
 Everything below is a one-file edit. See **[CONTENT_GUIDE.md](CONTENT_GUIDE.md)**
 for step-by-step instructions you can follow directly on github.com.
 
-| What you want to do                    | File to edit                           |
-| -------------------------------------- | -------------------------------------- |
-| Publish a new issue                    | `src/data/issues.js`                   |
-| Mark an issue resolved                 | `src/data/issues.js` → change `status` |
-| An office's email changed              | `src/data/authorities.js`              |
-| Reword the complaint email             | `src/data/emailTemplates.js`           |
-| Change a button or label               | `src/i18n/strings.js`                  |
-| Change the name, tagline, social links | `src/config/siteConfig.js`             |
+| What you want to do                          | File to edit                           |
+| -------------------------------------------- | -------------------------------------- |
+| Publish a new issue                          | `src/data/issues.js`                   |
+| Mark an issue resolved                       | `src/data/issues.js` → change `status` |
+| An office's email changed                    | `src/data/authorities.js`              |
+| Reword the complaint email                   | `src/data/emailTemplates.js`           |
+| Change a button or label                     | `src/i18n/strings.js`                  |
+| Change the name, tagline, logo, social links | `src/config/siteConfig.js`             |
 
 After any edit, run `npm run check:data`. It catches duplicated ids, unknown
 statuses, missing translations and mistyped dates, and says so in plain English.

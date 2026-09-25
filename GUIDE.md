@@ -286,16 +286,17 @@ tell you the fix in one sentence.
 
 # Quick reference
 
-| I want to…                         | File                               |
-| ---------------------------------- | ---------------------------------- |
-| Publish a new issue                | `src/data/issues.js`               |
-| Mark one resolved                  | `src/data/issues.js` → `status`    |
-| Fix an office's email              | `src/data/authorities.js`          |
-| Reword the complaint email         | `src/data/emailTemplates.js`       |
-| Change a button or label           | `src/i18n/strings.js`              |
-| Change name, tagline, social links | `src/config/siteConfig.js`         |
-| Add an issue photo                 | upload to `public/images/issues/`  |
-| Change the home page photo         | upload as `public/images/hero.jpg` |
+| I want to…                         | File                                                 |
+| ---------------------------------- | ---------------------------------------------------- |
+| Publish a new issue                | `src/data/issues.js`                                 |
+| Mark one resolved                  | `src/data/issues.js` → `status`                      |
+| Fix an office's email              | `src/data/authorities.js`                            |
+| Reword the complaint email         | `src/data/emailTemplates.js`                         |
+| Change a button or label           | `src/i18n/strings.js`                                |
+| Change name, tagline, social links | `src/config/siteConfig.js`                           |
+| Change the logo                    | replace `public/logo-mark.png` (square, emblem only) |
+| Add an issue photo                 | upload to `public/images/issues/`                    |
+| Change the home page photo         | upload as `public/images/hero.jpg`                   |
 
 **You never need to edit anything in `src/components/` or `src/pages/` to
 publish content.** If it feels like you do, something has gone wrong — the data

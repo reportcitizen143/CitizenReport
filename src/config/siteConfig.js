@@ -22,6 +22,12 @@ export const siteConfig = {
     en: 'Take our local problems to the right authorities',
   },
 
+  /**
+   * The logo mark shown in the header — the emblem only, without the words,
+   * so it stays readable at 40px. Swap the file in /public/ to rebrand.
+   */
+  logo: './logo-mark.png',
+
   /** Background photo for the home page hero. Put the file in /public/images/. */
   heroImage: '/images/hero.jpg',
 
@@ -37,9 +43,9 @@ export const siteConfig = {
    * never the main action.
    */
   social: {
-    youtube: 'https://youtube.com/@citizenreport',
-    instagram: 'https://instagram.com/citizenreport',
-    twitter: 'https://x.com/citizenreport',
+    youtube: 'https://www.youtube.com/@CitizenReport143',
+    instagram: 'https://www.instagram.com/reportcitizen143/',
+    twitter: 'https://x.com/reportcitizen14',
   },
 
   /** Signed at the bottom of every generated complaint email. */
