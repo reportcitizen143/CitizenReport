@@ -14,6 +14,9 @@ the visitor's own email app with everything filled in, and the visitor decides.
 
 ---
 
+**New here?** Start with **[GUIDE.md](GUIDE.md)** — what the app does, what you
+do week to week, and what to do when something goes wrong.
+
 ## How it works
 
 ```
@@ -123,6 +126,9 @@ web host. The included workflow at `.github/workflows/deploy.yml` publishes to
 GitHub Pages on every push to `main`.
 
 To turn it on: **Settings → Pages → Build and deployment → Source: GitHub Actions.**
+This is a one-time manual step — a workflow is not allowed to switch Pages on
+for itself with the default token. Until it is done, the build fails with
+_"Get Pages site failed"_. See [GUIDE.md](GUIDE.md#part-3--when-something-goes-wrong).
 
 The app uses `HashRouter`, so URLs look like `…/#/issue/CR-001`. That is
 deliberate: it works on a static host with no rewrite rules, in any sub-folder.

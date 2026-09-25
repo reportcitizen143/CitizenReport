@@ -1,10 +1,10 @@
 # Checks the data, builds the site, and publishes it to GitHub Pages.
 #
-# To switch this on once:
-#   Settings → Pages → Build and deployment → Source: GitHub Actions
+# ⚠️ ONE-TIME SETUP, done on the website — this workflow cannot do it for you:
+#   Settings → Pages → Build and deployment → Source: "GitHub Actions"
+# Until that is set, the build fails with "Get Pages site failed".
 #
-# After that, every edit you commit (from the website or from a laptop)
-# goes live on its own in about a minute.
+# After that, every commit you make goes live on its own in about a minute.
 name: Build and deploy
 
 on:
@@ -29,11 +29,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - run: npm ci
@@ -45,10 +45,10 @@ jobs:
 
       - run: npm run build
 
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
         if: github.event_name != 'pull_request'
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         if: github.event_name != 'pull_request'
         with:
           path: dist
@@ -63,4 +63,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
