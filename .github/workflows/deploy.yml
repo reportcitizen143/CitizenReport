@@ -1,0 +1,66 @@
+# Checks the data, builds the site, and publishes it to GitHub Pages.
+#
+# To switch this on once:
+#   Settings → Pages → Build and deployment → Source: GitHub Actions
+#
+# After that, every edit you commit (from the website or from a laptop)
+# goes live on its own in about a minute.
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once; let a newer commit finish rather than
+# cancelling it half-way.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # Catches a duplicated id, an unknown status, a mistyped date —
+      # before it can reach the live site.
+      - name: Check the data files
+        run: npm run check:data
+
+      - run: npm run build
+
+      - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
+
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: dist
+
+  deploy:
+    # Pull requests are checked but not published.
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

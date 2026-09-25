@@ -1,0 +1,29 @@
+{
+  "name": "citizen-report",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Citizen Report - see a local issue, send a ready-made complaint email to the right authority.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check:data": "node scripts/check-data.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "@vitejs/plugin-react": "^5.0.2",
+    "prettier": "^3.9.9",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4.1.13",
+    "vite": "^7.1.5"
+  }
+}
